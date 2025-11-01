@@ -1,7 +1,7 @@
 ---
 # Feature Roadmap – MERN Recipe Project
 
-This roadmap outlines the planned evolution of the MERN Recipe Project, from core functionality to advanced features and integrations. Each phase builds modularly, allowing for comfort-driven scaling, testing, and deployment.
+This roadmap outlines the planned evolution of the MERN Recipe Project, from core functionality to advanced features and integrations. Each phase builds modularly, allowing for scaling, testing, and deployment.
 ---
 
 ## Phase 1: Core Functionality (MVP)

@@ -56,3 +56,11 @@ export const deleteRecipeFromRecipeBox = async (req, res) => {
     res.status(500).json({ error: "Failed to add recipe to box" });
   }
 };
+
+
+export const deleteRecipeBox = async(req,res)=>{
+
+
+
+  
+}
