@@ -4,6 +4,7 @@ function RecipeCard({ recipeData }) {
   return (
     <div
       key={recipeData._id}
+      id={recipeData._id}
       className="max-w-sm rounded overflow-hidden shadow-lg bg-white"
     >
       <img
