@@ -1,11 +1,14 @@
-import React from "react";
+import placeholder from "../assets/placeholder.jpg";
 
 function RecipeCard({ recipeData }) {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+    <div
+      key={recipeData._id}
+      className="max-w-sm rounded overflow-hidden shadow-lg bg-white"
+    >
       <img
         className="w-full h-48 object-cover"
-        src={recipeData.image}
+        src={placeholder}
         alt={recipeData.title}
       />
       <div className="px-6 py-4">
