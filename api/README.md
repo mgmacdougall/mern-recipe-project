@@ -94,7 +94,7 @@ api/
 
 ## Testing
 
-You can use Postman or Insomnia to test the endpoints. Make sure your MongoDB server is running and your `.env` file is configured correctly.
+TODO
 
 ---
 
@@ -113,6 +113,3 @@ You can use Postman or Insomnia to test the endpoints. Make sure your MongoDB se
 Maintained by [Michael MacDougall](https://github.com/mgmacdougall)
 
 ---
-
-Notes:
-Compass to view local mongo
