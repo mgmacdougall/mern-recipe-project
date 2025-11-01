@@ -16,7 +16,7 @@ This roadmap outlines the planned evolution of the MERN Recipe Project, from cor
 
 ---
 
-## Phase 2: UX & Comfort Enhancements
+## Phase 2: UX Enhancements
 
 - [ ] Search and filter recipes by title or ingredient
 - [ ] Tagging system for recipes (e.g., “vegan”, “quick”, “holiday”)
