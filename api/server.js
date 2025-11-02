@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 import recipeRouter from "./routes/recipeRouter.js";
 import recipeBoxRouter from "./routes/recipeBoxRouter.js";
+import userRouter from "./routes/userRouter.js";
+
 import cors from "cors";
 
 // Load environment variables
@@ -18,8 +20,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/recipe", recipeRouter);
-
 app.use("/recipe-box", recipeBoxRouter);
+app.use("/user", userRouter);
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
