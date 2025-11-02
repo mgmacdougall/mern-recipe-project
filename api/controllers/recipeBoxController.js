@@ -1,6 +1,3 @@
-// controllers/recipeBoxController.js
-// const RecipeBox = require("../models/RecipeBox");
-// const Recipe = require("../models/Recipe");
 import recipeBoxModel from "../model/recipeBoxModel.js";
 import recipeModel from "../model/recipeModel.js";
 
@@ -27,10 +24,11 @@ export const addRecipeToBox = async (req, res) => {
 };
 
 export const createRecipeBox = async (req, res) => {
-  const { name } = req.body;
+  const { name, createdBy } = req.body;
+  console.log(name, createdBy);
   try {
-    const newRecipeBox = new recipeBoxModel();
-    const result = await newRecipeBox.save({ name });
+    const newRecipeBox = new recipeBoxModel({ name, createdBy });
+    const result = await newRecipeBox.save();
     res.status(200).json(result);
   } catch (error) {
     res.status(500);
@@ -57,10 +55,4 @@ export const deleteRecipeFromRecipeBox = async (req, res) => {
   }
 };
 
-
-export const deleteRecipeBox = async(req,res)=>{
-
-
-
-  
-}
+export const deleteRecipeBox = async (req, res) => {};

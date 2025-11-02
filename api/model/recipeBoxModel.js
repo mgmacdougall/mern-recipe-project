@@ -3,6 +3,11 @@ import mongoose from "mongoose";
 const recipeBoxModel = new mongoose.Schema({
   name: String,
   recipes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recipe" }],
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
   createdAt: { type: Date, default: Date.now },
 });
 
