@@ -4,19 +4,16 @@ import recipeModel from "../model/recipeModel.js";
 import asyncHandler from "express-async-handler";
 
 export const getAllRecipes = asyncHandler(async (req, res) => {
-  try {
-    const allRecipes = await recipeModel.find();
-    res.status(200).json(allRecipes);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
+  const allRecipes = await recipeModel.find();
+  res.status(200).json(allRecipes);
 });
 
 export const addRecipe = asyncHandler(async (req, res) => {
-  const { name, description } = req.body;
+  const { title, description, createdBy } = req.body;
   const newRecipe = new recipeModel({
-    name,
+    title,
     description,
+    createdBy,
   });
 
   const result = await newRecipe.save();
