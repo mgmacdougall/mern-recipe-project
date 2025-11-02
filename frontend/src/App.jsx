@@ -15,8 +15,10 @@ function App() {
 
   return (
     <>
-      <h1>Recipes List</h1>
-      {data && data.map((el) => <RecipeCard key={el._id} recipeData={el} />)}
+      <h1> Recipes List</h1>
+      <div className="justify-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 place-items-center">
+        {data && data.map((el) => <RecipeCard key={el._id} recipeData={el} />)}
+      </div>
     </>
   );
 }
