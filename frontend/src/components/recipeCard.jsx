@@ -5,7 +5,7 @@ function RecipeCard({ recipeData }) {
     <div
       key={recipeData._id}
       id={recipeData._id}
-      className="max-w-sm rounded overflow-hidden shadow-lg bg-white"
+      className="flex items-center justify-center flex-col w-96 h-96 rounded overflow-hidden shadow-lg bg-white"
     >
       <img
         className="w-full h-48 object-cover"
