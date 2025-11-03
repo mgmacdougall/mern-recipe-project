@@ -2,21 +2,21 @@ import placeholder from "../assets/placeholder.jpg";
 
 function RecipeCard({ recipeData }) {
   return (
-    <div
+    <article
       key={recipeData._id}
       id={recipeData._id}
-      className="flex items-center justify-center flex-col w-96 h-96 rounded overflow-hidden shadow-lg bg-white"
+      className="w-96 h-96 flex flex-col items-center justify-center bg-white rounded-lg shadow-lg overflow-hidden"
     >
       <img
-        className="w-full h-48 object-cover"
         src={placeholder}
         alt={recipeData.title}
+        className="h-48 w-full object-cover"
       />
-      <div className="px-6 py-4">
-        <h2 className="font-bold text-xl mb-2">{recipeData.title}</h2>
-        <p className="text-gray-700 text-base">{recipeData.description}</p>
-      </div>
-    </div>
+      <section className="p-6 text-center">
+        <h2 className="text-xl font-semibold mb-2">{recipeData.title}</h2>
+        <p className="text-base text-gray-700">{recipeData.description}</p>
+      </section>
+    </article>
   );
 }
 
