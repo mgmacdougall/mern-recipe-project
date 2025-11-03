@@ -15,7 +15,7 @@ function RecipeInput({ onSubmit, activeUser }) {
   };
 
   return (
-    <div className="">
+    <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="recipe-name-input">
           Recipe Name:
