@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const recipeBoxModel = new mongoose.Schema({
-  name: String,
+  name: { type: String, required: true, unique: true },
   recipes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recipe" }],
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
