@@ -4,6 +4,7 @@ import "./App.css";
 import axios from "axios";
 import UserInputContainer from "./components/userInputContainer";
 import RecipeInput from "./components/recipeInput";
+import RecipeBox from "./components/recipeBox";
 function App() {
   const [data, setData] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
@@ -31,9 +32,22 @@ function App() {
     }
   };
 
-  const handleRecipeSubmit = async (e, formData) => {
+  const handleRecipeBoxSubmit = async (e, formData) => {
     e.preventDefault();
 
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/recipe-box/add-recipe-box",
+        formData
+      );
+      console.log("Recipe Box created successfully:", response.data);
+    } catch (error) {
+      console.error("Error creating Recipe Box:", error);
+    }
+  };
+
+  const handleRecipeSubmit = async (e, formData) => {
+    e.preventDefault();
     try {
       const response = await axios.post(
         "http://localhost:8080/recipe/add",
@@ -53,13 +67,17 @@ function App() {
       </div>
       <div className="justify-center m-4 p-4 border-t-2 border-gray-300">
         <div>
-          <h2>User Creation Form</h2>
           <UserInputContainer onSubmit={handleUserCreationSubmit} />
         </div>
       </div>
       <div className="justify-center m-4 p-4 border-t-2 border-gray-300">
         <h2>Recipe Creation Form</h2>
         <RecipeInput onSubmit={handleRecipeSubmit} activeUser={currentUser} />
+      </div>
+
+      <div className="justify-center m-4 p-4 border-t-2 border-gray-300">
+        <h2>Recipe Box Creation Form</h2>
+        <RecipeBox onSubmit={handleRecipeBoxSubmit} activeUser={currentUser} />
       </div>
     </>
   );
