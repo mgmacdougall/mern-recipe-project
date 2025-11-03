@@ -3,21 +3,22 @@ import RecipeCard from "./components/recipeCard";
 import "./App.css";
 import axios from "axios";
 import UserInputContainer from "./components/userInputContainer";
-
+import RecipeInput from "./components/recipeInput";
 function App() {
   const [data, setData] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get("http://localhost:8080/recipe/all");
       setData(result.data);
+      setCurrentUser("6907484207479c52967c561f");
     };
     fetchData();
   }, []);
 
   const handleUserCreationSubmit = async (e, formData) => {
     e.preventDefault();
-    console.log("Form Data Submitted: ", { ...formData });
 
     try {
       const response = await axios.post(
@@ -27,6 +28,20 @@ function App() {
       console.log("User created successfully:", response.data);
     } catch (error) {
       console.error("Error creating user:", error);
+    }
+  };
+
+  const handleRecipeSubmit = async (e, formData) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/recipe/add",
+        formData
+      );
+      console.log("Recipe created successfully:", response.data);
+    } catch (error) {
+      console.error("Error creating recipe:", error);
     }
   };
 
@@ -41,6 +56,10 @@ function App() {
           <h2>User Creation Form</h2>
           <UserInputContainer onSubmit={handleUserCreationSubmit} />
         </div>
+      </div>
+      <div className="justify-center m-4 p-4 border-t-2 border-gray-300">
+        <h2>Recipe Creation Form</h2>
+        <RecipeInput onSubmit={handleRecipeSubmit} activeUser={currentUser} />
       </div>
     </>
   );
