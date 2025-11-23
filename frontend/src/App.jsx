@@ -5,10 +5,11 @@ import axios from "axios";
 import UserInputContainer from "./components/UserInputContainer";
 import RecipeInput from "./components/RecipeInput";
 import RecipeBox from "./components/RecipeBox";
+import RecipeBoxList from "./components/recipeBoxList";
 function App() {
   const [data, setData] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
-
+  const [recipeBoxes, setRecipeBoxes] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get("http://localhost:8080/recipe/all");
@@ -41,6 +42,10 @@ function App() {
         formData
       );
       console.log("Recipe Box created successfully:", response.data);
+      const allRecipeBoxesResponse = await axios.get(
+        "http://localhost:8080/recipe-box/all"
+      );
+      setRecipeBoxes(allRecipeBoxesResponse.data);
     } catch (error) {
       console.error("Error creating Recipe Box:", error);
     }
@@ -77,7 +82,15 @@ function App() {
 
       <div className="justify-center m-4 p-4 border-t-2 border-gray-300">
         <h2>Recipe Box Creation Form</h2>
-        <RecipeBox onSubmit={handleRecipeBoxSubmit} activeUser={currentUser} />
+        <RecipeBox
+          onSubmit={handleRecipeBoxSubmit}
+          activeUser={currentUser}
+          data={recipeBoxes}
+        />
+      </div>
+      <div className="justify-center m-4 p-4 border-t-2 border-gray-300">
+        <h2>Recipe Boxes List</h2>
+        <RecipeBoxList data={recipeBoxes} />
       </div>
     </>
   );
