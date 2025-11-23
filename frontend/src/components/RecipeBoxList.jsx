@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import RecipeBoxCard from "./RecipeBoxCard.jsx";
+import RecipeBoxCard from "./recipeBoxCard.jsx";
 
 function RecipeBoxList() {
   const [recipeBoxes, setRecipeBoxes] = useState([]);
