@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import RecipeCard from "./components/recipeCard";
+import RecipeCard from "./components/RecipeCard";
 import "./App.css";
 import axios from "axios";
-import UserInputContainer from "./components/userInputContainer";
-import RecipeInput from "./components/recipeInput";
-import RecipeBox from "./components/recipeBox";
+import UserInputContainer from "./components/UserInputContainer";
+import RecipeInput from "./components/RecipeInput";
+import RecipeBox from "./components/RecipeBox";
 function App() {
   const [data, setData] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
