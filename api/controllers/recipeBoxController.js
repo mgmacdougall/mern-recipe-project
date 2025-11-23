@@ -55,4 +55,16 @@ export const deleteRecipeFromRecipeBox = async (req, res) => {
   }
 };
 
+export const getAllRecipeBoxes = async (req, res) => {
+  try {
+    const recipeBoxes = await recipeBoxModel
+      .find({})
+      .populate("recipes")
+      .populate("createdBy");
+    res.status(200).send(recipeBoxes);
+  } catch (e) {
+    console.log("Error retrieving query", e);
+    res.status(500).json({ error: e.message });
+  }
+};
 export const deleteRecipeBox = async (req, res) => {};
