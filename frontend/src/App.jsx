@@ -6,10 +6,17 @@ import UserInputContainer from "./components/UserInputContainer";
 import RecipeInput from "./components/RecipeInput";
 import RecipeBox from "./components/RecipeBox";
 import RecipeBoxList from "./components/recipeBoxList";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import UserPage from "./pages/UserPage";
+import RecipeBoxPage from "./pages/RecipeBoxPage";
+import RecipesPage from "./pages/RecipesPage";
+import NavBar from "./components/NavBar";
 function App() {
   const [data, setData] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const [recipeBoxes, setRecipeBoxes] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get("http://localhost:8080/recipe/all");
@@ -66,6 +73,15 @@ function App() {
 
   return (
     <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/users" element={<UserPage />} />
+        <Route path="/recipe-boxes" element={<RecipeBoxPage />} />
+        <Route path="/recipes" element={<RecipesPage />} />
+        <Route path="/user" element={<UserPage />} />
+      </Routes>
+
       <h1> Recipes List</h1>
       <div className="justify-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 place-items-center">
         {data && data.map((el) => <RecipeCard key={el._id} recipeData={el} />)}
